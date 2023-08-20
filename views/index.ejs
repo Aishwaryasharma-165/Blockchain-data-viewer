@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Blockchain Data</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Welcome !</h1>
+            <h2>Get real time market data by click of a button.</h2>
+        </header>
+        <form action="/data" method="post">
+        <div class="col info">
+            <button type="submit" class="btn" formaction="/tickers">Price</button>
+            <button type="submit" class="btn" formaction="/symbols">Symbols</button>
+        </div>
+        </form>
+        <div class="hidden">
+            <% if (locals.content){ %>
+                <h1>Data</h1>
+            <% if(locals.type === "price") { %>
+                <p>symbol : <%= locals.content.symbol %></p>
+                <p>price_24h : <%= locals.content.price_24h %></p>
+                <p>volume_24h : <%= locals.content.volume_24h %></p>
+                <p>last_trade_price : <%= locals.content.last_trade_price %></p> 
+                <% } 
+                 else{  %>
+                <p>base_currency : <%= content.base_currency %></p>
+                <p>base_currency_scale : <%= content.base_currency_scale %></p>
+                <p>counter_currency : <%= content.counter_currency %></p>
+                <p>counter_currency_scale : <%= content.counter_currency_scale %></p> 
+                <p>min_price_increment : <%= content.min_price_increment %></p>
+                <p>min_price_increment_scale : <%= content.min_price_increment_scale %></p>
+                <p>min_order_size : <%= content.min_order_size %></p>
+                <p>min_order_size_scale : <%= content.min_order_size_scale %></p> 
+                <p>max_order_size : <%= content.max_order_size %></p>
+                <p>max_order_size_scale : <%= content.max_order_size_scale %></p>
+                <p>lot_size : <%= content.lot_size %></p>
+                <p>lot_size_scale : <%= content.lot_size_scale %></p> 
+                <p>status : <%= content.status %></p>
+                <p>id : <%= content.id %></p>
+                <p>auction_price : <%= content.auction_price %></p>
+                <p>auction_size : <%= content.auction_size %></p> 
+                <p>auction_time : <%= content.auction_time %></p>
+                <p>imbalance : <%= content.imbalance %></p> 
+            
+                <% }  
+            }else{  %>
+                <p><%= locals.error %></P>
+            <% } %>
+        </div>
+        <script src="index.js" async defer></script>
+        <footer>
+            Copyright @Blockchain.Api
+        </footer>
+    </body>
+</html>
