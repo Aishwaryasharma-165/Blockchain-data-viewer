@@ -23,7 +23,7 @@ This project is a simple web application built using EJS, JavaScript, and HTML. 
 
 ## Configuration
 
-1. Open the `app.js` file.
+1. Open the `index.js` file.
 2. Find the commented section where the API key is expected.
 3. Replace `'YOUR_API_KEY'` with your actual blockchain.com API key.
 
